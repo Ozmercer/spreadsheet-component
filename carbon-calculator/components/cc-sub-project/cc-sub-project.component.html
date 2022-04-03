@@ -1,0 +1,28 @@
+<ng-container
+  *ngIf="{
+    activeSubProject: activeSubProject$ | async,
+    lineItems: lineItems | async,
+    loading: loading | async
+  } as state"
+>
+  <h2 tt-font="h2">{{state.activeSubProject.subProject.name}}</h2>
+
+  <ng-container *ngIf="!state.loading; else ttLoading">
+    <ng-container *ngIf="state.activeSubProject.estimateSummary?.costxWorkbookId; else noData">
+      <cp-materials-card *ngFor="let item of state.lineItems" [lineItem]="item"></cp-materials-card>
+    </ng-container>
+  </ng-container>
+</ng-container>
+
+<ng-template #noData>
+  <tt-card-content [padded]="false">
+    <app-missing-data [hideCard]="true" [dataComingSoon]="false"
+                      noDataMessage="No data available for the sub-project. Please import data from CostX to proceed.">
+      <button color="accent" mat-flat-button (click)="navigateToDataImport()">Import Data</button>
+    </app-missing-data>
+  </tt-card-content>
+</ng-template>
+
+<ng-template #ttLoading>
+  <tt-loading></tt-loading>
+</ng-template>

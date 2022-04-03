@@ -1,0 +1,72 @@
+@import 'lib';
+
+:host {
+  ag-grid-angular {
+    width: 100%;
+    border-top: $border-regular;
+  }
+
+  .title {
+    padding: $spacing-24;
+
+    p {
+      color: $color-grey-5;
+    }
+  }
+
+  mat-radio-group {
+    padding: $spacing-16 $spacing-32;
+    gap: $spacing-24;
+    margin: 0;
+
+    ::ng-deep {
+      .mat-radio-container {
+        top: $spacing-4;
+
+        .mat-radio-outer-circle,
+        .mat-radio-inner-circle {
+          height: $spacing-16;
+          width: $spacing-16;
+        }
+      }
+    }
+
+    mat-radio-button {
+      flex: 0;
+    }
+  }
+
+  button {
+    margin: $spacing-16;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    border-top: $border-regular;
+
+    @include max-width('small') {
+      flex-direction: column;
+
+      mat-radio-group {
+        gap: 0;
+        justify-content: space-between;
+
+        & + button {
+          margin: 0;
+          padding: $spacing-16;
+          border-top: $border-regular;
+        }
+      }
+    }
+  }
+
+  footer {
+    padding: $spacing-16;
+
+    button {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}

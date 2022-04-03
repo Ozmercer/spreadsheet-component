@@ -1,0 +1,16 @@
+@import 'lib';
+
+span {
+  display: flex;
+  align-items: center;
+  gap: $spacing-8;
+  padding: $spacing-16 $spacing-8;
+  height: 100%;
+  box-sizing: border-box;
+
+  mat-icon {
+    height: $spacing-20;
+    width: $spacing-20;
+    font-size: 20px;
+  }
+}

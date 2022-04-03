@@ -1,0 +1,11 @@
+@import 'lib';
+
+:host {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  app-layout {
+    flex: 1;
+  }
+}

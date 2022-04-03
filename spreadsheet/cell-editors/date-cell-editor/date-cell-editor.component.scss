@@ -1,0 +1,7 @@
+@import 'lib';
+
+tt-card-content {
+  display: flex;
+  justify-content: space-between;
+  padding: $spacing-8;
+}

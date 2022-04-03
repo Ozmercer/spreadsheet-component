@@ -1,0 +1,9 @@
+<app-layout [contain]="true">
+  <app-adaptive-navigation aside [links]="carbonCalculatorLinks$ | async" title="Sub-Projects"></app-adaptive-navigation>
+
+  <ng-container content>
+    <router-outlet></router-outlet>
+  </ng-container>
+</app-layout>
+
+<app-footer></app-footer>

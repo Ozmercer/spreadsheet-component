@@ -1,0 +1,12 @@
+@import 'lib';
+
+div {
+  color: $color-grey-5;
+  background-color: transparent;
+  transition: all 0.3s;
+
+  &:hover {
+    color: rgba(var(--palette-accent-700));
+  }
+}
+

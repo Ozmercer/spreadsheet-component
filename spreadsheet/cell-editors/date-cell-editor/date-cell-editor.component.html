@@ -1,0 +1,6 @@
+<tt-card-content [padded]="false">
+  <input [(ngModel)]="date" matInput [matDatepicker]="picker" autocomplete="off" (input)="onInput($event.target)"
+         placeholder="Enter a date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</tt-card-content>

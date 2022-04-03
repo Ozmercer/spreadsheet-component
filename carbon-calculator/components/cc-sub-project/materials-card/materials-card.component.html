@@ -1,0 +1,27 @@
+<tt-card>
+  <tt-card-content>
+    <tt-info-summary [title]="lineItem.code" [showTitleAsLink]="false" tt-font="text-3">
+      <p>Description: {{lineItem.estimate.description}}</p>
+      <p>Original Quantity: {{lineItem.estimate.quantity | ttNumber}} {{lineItem.estimate.unitOfMeasure}}</p>
+      <tt-status-pill label="incomplete" colour="red"></tt-status-pill>
+    </tt-info-summary>
+
+    <section>
+      <mat-form-field>
+        <mat-label>Select Option</mat-label>
+        <mat-select
+          [value]="lineItem.options.length === 1 ? lineItem.options[0] : null">
+          <mat-option [value]="null">Remove</mat-option>
+          <mat-option *ngFor="let option of lineItem.options" [value]="option.id">
+            {{option.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- TODO: Use real value once exists -->
+      <tt-label-value label="Carbon Used" value="N/A" [options]="options"></tt-label-value>
+    </section>
+  </tt-card-content>
+
+  <cp-materials-table></cp-materials-table>
+</tt-card>

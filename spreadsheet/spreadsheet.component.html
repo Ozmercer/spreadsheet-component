@@ -1,0 +1,39 @@
+<div class="actions" *ngIf="!hideFilters">
+  <mat-radio-group (change)="externalFilterChanged($event.value)">
+    <mat-radio-button tt-small [value]="filterTypes.All" checked>All</mat-radio-button>
+    <mat-radio-button tt-small [value]="filterTypes.Valid">Valid</mat-radio-button>
+    <mat-radio-button tt-small [value]="filterTypes.Invalid">Invalid</mat-radio-button>
+  </mat-radio-group>
+
+  <ng-container *ngIf="newRowPosition === rowPosition.Top">
+    <ng-container *ngTemplateOutlet="newRowBtn"></ng-container>
+  </ng-container>
+</div>
+
+<ag-grid-angular
+  (cellValueChanged)="gridChanged()"
+  (gridSizeChanged)="onSizeChange()"
+  [animateRows]="true"
+  [columnDefs]="columnDefs"
+  [defaultColDef]="defaultColDef"
+  [doesExternalFilterPass]="doesExternalFilterPass.bind(this)"
+  [isExternalFilterPresent]="isExternalFilterPresent.bind(this)"
+  [rowData]="data"
+  [tooltipShowDelay]="0"
+  [frameworkComponents]="frameworkComponents"
+  [stopEditingWhenGridLosesFocus]="stopEditOnBlur"
+  [pinnedBottomRowData]="pinnedBottomRowData"
+  class="ag-theme-material"
+  domLayout="autoHeight"
+></ag-grid-angular>
+
+<footer *ngIf="newRowPosition === rowPosition.Bottom">
+  <ng-container *ngTemplateOutlet="newRowBtn"></ng-container>
+</footer>
+
+<ng-template #newRowBtn>
+  <button mat-button tt-text-icon-button color="accent" tt-small (click)="addRow()">
+    <mat-icon>add</mat-icon>
+    <span>{{addBtnText}}</span>
+  </button>
+</ng-template>

@@ -1,0 +1,42 @@
+@import 'lib';
+
+tt-card {
+  margin-bottom: $spacing-24;
+
+  tt-info-summary {
+    position: relative;
+
+    @include breakpoint('small') {
+      p {
+        max-width: calc(100% - 120px);
+      }
+    }
+
+    tt-status-pill {
+      position: absolute;
+      top: 0;
+      right: 0;
+      @include text-5();
+    }
+  }
+
+  section {
+    display: flex;
+    align-items: center;
+    gap: $spacing-32;
+    margin-top: $spacing-28;
+
+    tt-label-value {
+      padding: $spacing-16;
+      border-block: $border-regular;
+    }
+
+    & * {
+      width: 100%;
+    }
+  }
+
+  mat-form-field::ng-deep .mat-form-field-wrapper {
+    padding: 0;
+  }
+}
